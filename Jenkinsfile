@@ -6,7 +6,7 @@ pipeline {
                 script {
                     def customWorkspace = '/mnt/data'
                     ws(customWorkspace) {
-                        sh "cp -r index.html /var/www/html"
+                        sh "cp -r /mnt/data/dev-app/index.html /var/www/html"
                         sh "chmod -R 777 /var/www/html/index.html"
                     }
                 }
