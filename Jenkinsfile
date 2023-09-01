@@ -1,19 +1,20 @@
 pipeline {
     agent any
     stages {
-        stage('stage-1') {
+        stage('deploy') {
             steps {
                 script {
                     def customWorkspace = '/mnt/data'
                     ws(customWorkspace) {
-                        sh "mkdir TEST"
+                        sh "cp -r index.html /var/www/html"
+                        sh "chmod -R 777 /var/www/html/index.html"
                     }
                 }
             }
         }
-        stage('stage-2') {
+        stage('start') {
             steps {
-                sh "mkdir folder"
+                sh "service httpd start"
             }
         }
     }
