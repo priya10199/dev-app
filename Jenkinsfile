@@ -6,14 +6,14 @@ pipeline {
                 script {
                     def customWorkspace = '/mnt/data'
                     ws(customWorkspace) {
-                        echo "hello this is 22q1 branch"
+                        echo "hello this is 23Q1 branch"
                     }
                 }
             }
         }
         stage('stage-2') {
             steps {
-                echo "this is master branch"
+                echo "this is 23Q1 branch"
             }
         }
     }
