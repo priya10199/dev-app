@@ -1,20 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('deploy') {
+        stage('stage-1') {
             steps {
                 script {
                     def customWorkspace = '/mnt/data'
                     ws(customWorkspace) {
-                        sh "cp -r /mnt/data/dev-app/index.html /var/www/html"
-                        sh "chmod -R 777 /var/www/html/index.html"
+                        echo "hello this is 22q1 branch"
                     }
                 }
             }
         }
-        stage('start') {
+        stage('stage-2') {
             steps {
-                sh "service httpd start"
+                echo "this is master branch"
             }
         }
     }
